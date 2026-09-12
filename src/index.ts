@@ -55,8 +55,25 @@ function renderFormPage(options: { showSuccess: boolean } = { showSuccess: false
   h1 { font-size: 1.3rem; }
   label { display: block; margin-top: 16px; font-weight: bold; }
   input[type="text"], textarea { width: 100%; padding: 8px; font-size: 1rem; box-sizing: border-box; margin-top: 4px; }
-  .radio-group { margin-top: 4px; }
-  .radio-group label { display: inline-block; font-weight: normal; margin-right: 16px; }
+  .radio-group { display: flex; gap: 8px; margin-top: 4px; }
+  .radio-option {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    min-height: 44px;
+    padding: 10px 4px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    font-weight: normal;
+    text-align: center;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: border-color 0.15s, background-color 0.15s;
+  }
+  .radio-option input[type="radio"] { width: 18px; height: 18px; }
+  .radio-option:has(input:checked) { border-color: #1e7e34; background: #e6f4ea; font-weight: bold; }
   button { margin-top: 24px; padding: 10px 24px; font-size: 1rem; cursor: pointer; }
   .success { background: #e6f4ea; color: #1e7e34; padding: 12px; border-radius: 4px; }
 </style>
@@ -70,9 +87,9 @@ function renderFormPage(options: { showSuccess: boolean } = { showSuccess: false
 
     <label>出欠</label>
     <div class="radio-group">
-      <label><input type="radio" name="attendance" value="参加" required> 参加</label>
-      <label><input type="radio" name="attendance" value="不参加"> 不参加</label>
-      <label><input type="radio" name="attendance" value="未定"> 未定</label>
+      <label class="radio-option"><input type="radio" name="attendance" value="参加" required> 参加</label>
+      <label class="radio-option"><input type="radio" name="attendance" value="不参加"> 不参加</label>
+      <label class="radio-option"><input type="radio" name="attendance" value="未定"> 未定</label>
     </div>
 
     <label for="note">ひとこと（任意）</label>
