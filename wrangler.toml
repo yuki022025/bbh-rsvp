@@ -1,0 +1,8 @@
+name = "bbh-rsvp"
+main = "src/index.ts"
+compatibility_date = "2026-09-01"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "bbh-rsvp-db"
+database_id = "1f686206-db8a-4670-bd69-a70e01ae5970"
